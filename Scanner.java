@@ -15,6 +15,7 @@ class Scanner {
 
   // Lexical states.
   public static final int YYINITIAL = 0;
+  public static final int STRING = 2;
 
   /**
    * ZZ_LEXSTATE[l] is the state in the DFA for the lexical state l
@@ -23,7 +24,7 @@ class Scanner {
    * l is of the form l = 2*k, k a non negative integer
    */
   private static final int ZZ_LEXSTATE[] = {
-     0, 0
+     0,  0,  1, 1
   };
 
   /**
@@ -60,14 +61,14 @@ class Scanner {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\10\0\2\1\1\2\1\0\1\1\1\3\22\0\1\1"+
-    "\1\4\1\5\3\0\1\6\1\1\2\7\1\10\1\11"+
-    "\1\7\1\11\1\12\1\13\12\14\1\0\1\7\1\15"+
-    "\1\16\1\15\2\0\4\17\1\20\25\17\1\7\1\21"+
-    "\1\7\1\0\1\17\1\0\1\22\1\23\1\24\1\25"+
-    "\1\26\1\27\1\17\1\30\1\31\1\17\1\32\1\33"+
-    "\1\17\1\34\1\35\2\17\1\36\1\37\1\40\1\41"+
-    "\1\42\1\43\3\17\1\7\1\44\1\7\u0182\0";
+    "\11\0\1\1\1\2\1\0\1\1\1\3\22\0\1\1"+
+    "\1\4\1\5\3\0\1\6\1\7\2\10\1\11\1\12"+
+    "\1\10\1\12\1\13\1\14\12\15\1\0\1\10\1\16"+
+    "\1\17\1\16\2\0\4\20\1\21\25\20\1\10\1\22"+
+    "\1\10\1\0\1\20\1\0\1\23\1\24\1\25\1\26"+
+    "\1\27\1\30\1\20\1\31\1\32\1\20\1\33\1\34"+
+    "\1\20\1\35\1\36\2\20\1\37\1\40\1\41\1\42"+
+    "\1\43\1\44\3\20\1\10\1\45\1\10\u0182\0";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[512];
@@ -94,14 +95,15 @@ class Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\2\2\1\3\1\2\1\1\1\4\1\5"+
-    "\1\1\1\5\1\6\1\7\1\10\12\11\1\1\1\12"+
-    "\1\0\1\13\1\3\1\14\1\0\1\15\1\0\1\7"+
-    "\7\11\1\16\5\11\1\0\2\15\1\0\1\14\16\11"+
-    "\1\17\4\11";
+    "\2\0\1\1\2\2\1\3\1\4\1\1\1\5\1\6"+
+    "\1\1\1\6\1\7\1\10\1\11\12\12\1\1\1\13"+
+    "\2\14\1\15\1\1\1\16\1\3\1\17\1\0\1\20"+
+    "\1\0\1\10\7\12\1\21\5\12\1\22\1\23\1\24"+
+    "\1\25\1\26\1\27\1\30\1\31\1\0\2\20\1\0"+
+    "\1\17\16\12\1\32\4\12";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[71];
+    int [] result = new int[83];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -126,18 +128,20 @@ class Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\45\0\45\0\112\0\157\0\224\0\271\0\45"+
-    "\0\45\0\336\0\u0103\0\u0128\0\u014d\0\157\0\u0172\0\u0197"+
-    "\0\u01bc\0\u01e1\0\u0206\0\u022b\0\u0250\0\u0275\0\u029a\0\u02bf"+
-    "\0\u02e4\0\45\0\224\0\45\0\45\0\u0309\0\u032e\0\u0353"+
-    "\0\u0378\0\45\0\u039d\0\u03c2\0\u03e7\0\u040c\0\u0431\0\u0456"+
-    "\0\u047b\0\u0172\0\u04a0\0\u04c5\0\u04ea\0\u050f\0\u0534\0\u0559"+
-    "\0\45\0\u057e\0\u05a3\0\u05a3\0\u05c8\0\u05ed\0\u0612\0\u0637"+
-    "\0\u065c\0\u0681\0\u06a6\0\u06cb\0\u06f0\0\u0715\0\u073a\0\u075f"+
-    "\0\u0784\0\u07a9\0\u0172\0\u07ce\0\u07f3\0\u0818\0\u083d";
+    "\0\0\0\46\0\114\0\114\0\162\0\230\0\114\0\276"+
+    "\0\114\0\114\0\344\0\u010a\0\u0130\0\u0156\0\230\0\u017c"+
+    "\0\u01a2\0\u01c8\0\u01ee\0\u0214\0\u023a\0\u0260\0\u0286\0\u02ac"+
+    "\0\u02d2\0\u02f8\0\u031e\0\114\0\u0344\0\114\0\u036a\0\114"+
+    "\0\114\0\u0390\0\u03b6\0\u03dc\0\u0402\0\114\0\u0428\0\u044e"+
+    "\0\u0474\0\u049a\0\u04c0\0\u04e6\0\u050c\0\u017c\0\u0532\0\u0558"+
+    "\0\u057e\0\u05a4\0\u05ca\0\114\0\114\0\114\0\114\0\114"+
+    "\0\114\0\114\0\114\0\u05f0\0\114\0\u0616\0\u063c\0\u063c"+
+    "\0\u0662\0\u0688\0\u06ae\0\u06d4\0\u06fa\0\u0720\0\u0746\0\u076c"+
+    "\0\u0792\0\u07b8\0\u07de\0\u0804\0\u082a\0\u0850\0\u017c\0\u0876"+
+    "\0\u089c\0\u08c2\0\u08e8";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[71];
+    int [] result = new int[83];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -160,61 +164,64 @@ class Scanner {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\1\2\2\3\1\4\1\5\1\6\1\7\1\10\2\11"+
-    "\1\12\1\13\1\14\1\15\1\16\2\17\1\3\1\17"+
-    "\1\20\1\21\1\17\1\22\1\23\1\17\1\24\4\17"+
-    "\1\25\1\17\1\26\1\17\1\27\1\30\1\31\47\0"+
-    "\1\3\60\0\1\32\26\0\2\33\2\0\1\33\1\34"+
-    "\13\33\1\0\23\33\6\0\1\35\52\0\1\36\40\0"+
-    "\1\37\2\0\1\40\43\0\1\36\1\0\1\14\3\0"+
-    "\1\41\5\0\1\41\34\0\1\42\42\0\1\17\2\0"+
-    "\2\17\1\0\22\17\15\0\1\17\2\0\2\17\1\0"+
-    "\13\17\1\43\1\44\5\17\15\0\1\17\2\0\2\17"+
-    "\1\0\13\17\1\45\6\17\15\0\1\17\2\0\2\17"+
-    "\1\0\11\17\1\46\10\17\15\0\1\17\2\0\2\17"+
-    "\1\0\1\47\10\17\1\50\1\17\1\51\6\17\15\0"+
-    "\1\17\2\0\2\17\1\0\5\17\1\52\4\17\1\53"+
-    "\7\17\15\0\1\17\2\0\2\17\1\0\4\17\1\54"+
-    "\15\17\15\0\1\17\2\0\2\17\1\0\14\17\1\55"+
-    "\5\17\15\0\1\17\2\0\2\17\1\0\13\17\1\56"+
-    "\6\17\15\0\1\17\2\0\2\17\1\0\6\17\1\57"+
-    "\13\17\45\0\1\35\14\0\1\36\3\0\1\41\5\0"+
-    "\1\41\16\0\10\37\1\60\34\37\2\40\1\61\1\62"+
-    "\41\40\11\0\1\63\2\0\1\64\44\0\1\17\2\0"+
-    "\2\17\1\0\13\17\1\65\6\17\15\0\1\17\2\0"+
-    "\2\17\1\0\4\17\1\66\15\17\15\0\1\17\2\0"+
-    "\2\17\1\0\12\17\1\67\7\17\15\0\1\17\2\0"+
-    "\2\17\1\0\15\17\1\70\4\17\15\0\1\17\2\0"+
-    "\2\17\1\0\11\17\1\71\10\17\15\0\1\17\2\0"+
-    "\2\17\1\0\13\17\1\72\6\17\15\0\1\17\2\0"+
-    "\2\17\1\0\14\17\1\52\5\17\15\0\1\17\2\0"+
-    "\2\17\1\0\16\17\1\52\3\17\15\0\1\17\2\0"+
-    "\2\17\1\0\16\17\1\73\3\17\15\0\1\17\2\0"+
-    "\2\17\1\0\17\17\1\74\2\17\15\0\1\17\2\0"+
-    "\2\17\1\0\7\17\1\75\12\17\15\0\1\17\2\0"+
-    "\2\17\1\0\7\17\1\76\12\17\1\0\10\37\1\60"+
-    "\2\37\1\61\31\37\2\0\1\61\56\0\1\64\44\0"+
-    "\1\17\2\0\2\17\1\0\11\17\1\77\10\17\15\0"+
-    "\1\17\2\0\2\17\1\0\1\100\21\17\15\0\1\17"+
-    "\2\0\2\17\1\0\16\17\1\101\3\17\15\0\1\17"+
-    "\2\0\2\17\1\0\4\17\1\52\15\17\15\0\1\17"+
-    "\2\0\2\17\1\0\15\17\1\74\4\17\15\0\1\17"+
-    "\2\0\2\17\1\0\1\53\21\17\15\0\1\17\2\0"+
-    "\2\17\1\0\17\17\1\102\2\17\15\0\1\17\2\0"+
-    "\2\17\1\0\4\17\1\103\15\17\15\0\1\17\2\0"+
-    "\2\17\1\0\3\17\1\52\16\17\15\0\1\17\2\0"+
-    "\2\17\1\0\11\17\1\70\10\17\15\0\1\17\2\0"+
-    "\2\17\1\0\4\17\1\104\15\17\15\0\1\17\2\0"+
-    "\2\17\1\0\10\17\1\52\11\17\15\0\1\17\2\0"+
-    "\2\17\1\0\7\17\1\105\12\17\15\0\1\17\2\0"+
-    "\2\17\1\0\14\17\1\106\5\17\15\0\1\17\2\0"+
-    "\2\17\1\0\1\106\21\17\15\0\1\17\2\0\2\17"+
-    "\1\0\12\17\1\107\7\17\15\0\1\17\2\0\2\17"+
-    "\1\0\12\17\1\52\7\17\15\0\1\17\2\0\2\17"+
-    "\1\0\17\17\1\70\2\17\1\0";
+    "\1\3\2\4\1\5\1\6\1\7\1\10\1\3\1\11"+
+    "\2\12\1\13\1\14\1\15\1\16\1\17\2\20\1\3"+
+    "\1\20\1\21\1\22\1\20\1\23\1\24\1\20\1\25"+
+    "\4\20\1\26\1\20\1\27\1\20\1\30\1\31\1\32"+
+    "\2\33\1\34\1\35\1\33\1\36\14\33\1\37\23\33"+
+    "\50\0\1\4\62\0\1\40\34\0\1\41\54\0\1\42"+
+    "\41\0\1\43\2\0\1\44\44\0\1\42\1\0\1\15"+
+    "\3\0\1\45\5\0\1\45\35\0\1\46\43\0\1\20"+
+    "\2\0\2\20\1\0\22\20\16\0\1\20\2\0\2\20"+
+    "\1\0\13\20\1\47\1\50\5\20\16\0\1\20\2\0"+
+    "\2\20\1\0\13\20\1\51\6\20\16\0\1\20\2\0"+
+    "\2\20\1\0\11\20\1\52\10\20\16\0\1\20\2\0"+
+    "\2\20\1\0\1\53\10\20\1\54\1\20\1\55\6\20"+
+    "\16\0\1\20\2\0\2\20\1\0\5\20\1\56\4\20"+
+    "\1\57\7\20\16\0\1\20\2\0\2\20\1\0\4\20"+
+    "\1\60\15\20\16\0\1\20\2\0\2\20\1\0\14\20"+
+    "\1\61\5\20\16\0\1\20\2\0\2\20\1\0\13\20"+
+    "\1\62\6\20\16\0\1\20\2\0\2\20\1\0\6\20"+
+    "\1\63\13\20\46\0\1\41\2\33\2\0\1\33\1\0"+
+    "\14\33\1\0\23\33\2\0\1\34\50\0\1\64\1\0"+
+    "\1\65\12\0\1\66\1\0\1\67\3\0\1\70\4\0"+
+    "\1\71\1\0\1\72\1\0\1\73\21\0\1\42\3\0"+
+    "\1\45\5\0\1\45\16\0\11\43\1\74\34\43\2\44"+
+    "\1\75\1\76\42\44\12\0\1\77\2\0\1\100\45\0"+
+    "\1\20\2\0\2\20\1\0\13\20\1\101\6\20\16\0"+
+    "\1\20\2\0\2\20\1\0\4\20\1\102\15\20\16\0"+
+    "\1\20\2\0\2\20\1\0\12\20\1\103\7\20\16\0"+
+    "\1\20\2\0\2\20\1\0\15\20\1\104\4\20\16\0"+
+    "\1\20\2\0\2\20\1\0\11\20\1\105\10\20\16\0"+
+    "\1\20\2\0\2\20\1\0\13\20\1\106\6\20\16\0"+
+    "\1\20\2\0\2\20\1\0\14\20\1\56\5\20\16\0"+
+    "\1\20\2\0\2\20\1\0\16\20\1\56\3\20\16\0"+
+    "\1\20\2\0\2\20\1\0\16\20\1\107\3\20\16\0"+
+    "\1\20\2\0\2\20\1\0\17\20\1\110\2\20\16\0"+
+    "\1\20\2\0\2\20\1\0\7\20\1\111\12\20\16\0"+
+    "\1\20\2\0\2\20\1\0\7\20\1\112\12\20\1\0"+
+    "\11\43\1\74\2\43\1\75\31\43\2\0\1\75\60\0"+
+    "\1\100\45\0\1\20\2\0\2\20\1\0\11\20\1\113"+
+    "\10\20\16\0\1\20\2\0\2\20\1\0\1\114\21\20"+
+    "\16\0\1\20\2\0\2\20\1\0\16\20\1\115\3\20"+
+    "\16\0\1\20\2\0\2\20\1\0\4\20\1\56\15\20"+
+    "\16\0\1\20\2\0\2\20\1\0\15\20\1\110\4\20"+
+    "\16\0\1\20\2\0\2\20\1\0\1\57\21\20\16\0"+
+    "\1\20\2\0\2\20\1\0\17\20\1\116\2\20\16\0"+
+    "\1\20\2\0\2\20\1\0\4\20\1\117\15\20\16\0"+
+    "\1\20\2\0\2\20\1\0\3\20\1\56\16\20\16\0"+
+    "\1\20\2\0\2\20\1\0\11\20\1\104\10\20\16\0"+
+    "\1\20\2\0\2\20\1\0\4\20\1\120\15\20\16\0"+
+    "\1\20\2\0\2\20\1\0\10\20\1\56\11\20\16\0"+
+    "\1\20\2\0\2\20\1\0\7\20\1\121\12\20\16\0"+
+    "\1\20\2\0\2\20\1\0\14\20\1\122\5\20\16\0"+
+    "\1\20\2\0\2\20\1\0\1\122\21\20\16\0\1\20"+
+    "\2\0\2\20\1\0\12\20\1\123\7\20\16\0\1\20"+
+    "\2\0\2\20\1\0\12\20\1\56\7\20\16\0\1\20"+
+    "\2\0\2\20\1\0\17\20\1\104\2\20\1\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[2146];
+    int [] result = new int[2318];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -257,12 +264,12 @@ class Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\1\0\2\11\4\1\2\11\20\1\1\11\1\0\2\11"+
-    "\1\1\1\0\1\1\1\0\1\11\15\1\1\0\1\11"+
-    "\1\1\1\0\24\1";
+    "\2\0\2\11\2\1\1\11\1\1\2\11\21\1\1\11"+
+    "\1\1\1\11\1\1\2\11\1\1\1\0\1\1\1\0"+
+    "\1\11\15\1\10\11\1\0\1\11\1\1\1\0\24\1";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[71];
+    int [] result = new int[83];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -340,6 +347,8 @@ class Scanner {
   private boolean zzEOFDone;
 
   /* user code: */
+  StringBuilder string = new StringBuilder();
+
   public void printToken(String tokenType, String spelling, int row, int col){
     System.out.println("Type: " + tokenType);
     System.out.println("Spelling: " + spelling.trim());
@@ -742,80 +751,135 @@ class Scanner {
       else {
         switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
           case 1:
-            { System.out.print(yytext());
+            { printToken("Error: Unknow token", yytext(), yyline, yycolumn);
             }
             // fall through
-          case 16: break;
+          case 27: break;
           case 2:
             { /* ignore */
             }
             // fall through
-          case 17: break;
+          case 28: break;
           case 3:
             { printToken("Logical Operator", yytext(), yyline, yycolumn);
             }
             // fall through
-          case 18: break;
-          case 4:
-            { printToken("Separator", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 19: break;
-          case 5:
-            { printToken("Arithmetic Operator", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 20: break;
-          case 6:
-            { printToken("Integer", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 21: break;
-          case 7:
-            { printToken("Relational Operator", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 22: break;
-          case 8:
-            { printToken("Assignment Operator", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 23: break;
-          case 9:
-            { printToken("Identifier", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 24: break;
-          case 10:
-            { printToken("Equality Operator", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 25: break;
-          case 11:
-            { printToken("String", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 26: break;
-          case 12:
-            { printToken("Float", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 27: break;
-          case 13:
-            { printToken("Comment", yytext(), yyline, yycolumn);
-            }
-            // fall through
-          case 28: break;
-          case 14:
-            { printToken("Keyword", yytext(), yyline, yycolumn);
-            }
-            // fall through
           case 29: break;
-          case 15:
-            { printToken("Boolean", yytext(), yyline, yycolumn);
+          case 4:
+            { yybegin(STRING); string.setLength(0);
             }
             // fall through
           case 30: break;
+          case 5:
+            { printToken("Separator", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 31: break;
+          case 6:
+            { printToken("Arithmetic Operator", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 32: break;
+          case 7:
+            { printToken("Integer", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 33: break;
+          case 8:
+            { printToken("Relational Operator", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 34: break;
+          case 9:
+            { printToken("Assignment Operator", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 35: break;
+          case 10:
+            { printToken("Identifier", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 36: break;
+          case 11:
+            { string.append( yytext() );
+            }
+            // fall through
+          case 37: break;
+          case 12:
+            { printToken("Unterminated String", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 38: break;
+          case 13:
+            { yybegin(YYINITIAL); printToken("String", string.toString(), yyline, yycolumn);
+            }
+            // fall through
+          case 39: break;
+          case 14:
+            { printToken("Equality Operator", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 40: break;
+          case 15:
+            { printToken("Float", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 41: break;
+          case 16:
+            { printToken("Comment", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 42: break;
+          case 17:
+            { printToken("Keyword", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 43: break;
+          case 18:
+            { string.append( '\"' );
+            }
+            // fall through
+          case 44: break;
+          case 19:
+            { string.append( '\'' );
+            }
+            // fall through
+          case 45: break;
+          case 20:
+            { string.append( '\\' );
+            }
+            // fall through
+          case 46: break;
+          case 21:
+            { string.append( '\b' );
+            }
+            // fall through
+          case 47: break;
+          case 22:
+            { string.append( '\f' );
+            }
+            // fall through
+          case 48: break;
+          case 23:
+            { string.append( '\n' );
+            }
+            // fall through
+          case 49: break;
+          case 24:
+            { string.append( '\r' );
+            }
+            // fall through
+          case 50: break;
+          case 25:
+            { string.append( '\t' );
+            }
+            // fall through
+          case 51: break;
+          case 26:
+            { printToken("Boolean", yytext(), yyline, yycolumn);
+            }
+            // fall through
+          case 52: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

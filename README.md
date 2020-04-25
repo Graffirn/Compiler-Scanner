@@ -17,7 +17,7 @@
 ```java Scanner <test_file_name>``` 
 
 2. Scan multiple files
-  - Copy all files to folder ```test\``` 
+  - Copy all files to folder ```input\``` 
   - Run script ```run_test.ps1``` in powershell<br>
-   ```.\run_test.ps1```
-  - Result of each file will be generated in the ```out\``` folder
+   ```.\scan-multiple.ps1```
+  - Result of each file will be generated in the ```output\``` folder
